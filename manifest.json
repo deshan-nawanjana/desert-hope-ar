@@ -1,0 +1,10 @@
+{
+    "name": "Desert Hope",
+    "icons": [
+        {
+            "src": "index.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        }
+    ]
+}
