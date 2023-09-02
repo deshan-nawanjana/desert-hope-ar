@@ -212,7 +212,10 @@
         </div>
 
         <!-- reality page -->
-        <div class="page reality" :active="page === 'reality'">
+        <div class="page reality" :active="page === 'reality'">            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+            </div>
             <div class="reality-outer" v-if="page === 'reality'">
                 <model-viewer
                     alt="Location Model"
