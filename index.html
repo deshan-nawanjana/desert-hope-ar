@@ -207,15 +207,72 @@
 
         <!-- product page -->
         <div class="page cart" :active="page === 'cart'">
-            <button @click="back">BACK</button>
-            CART
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Cart
+                </div>
+                <div class="ribbon-total">
+                    {{ cart_total }} LKR
+                </div>
+            </div>
+            <div class="cart-inner" @scroll="updateScroll" :total="profile.cart.length">
+                <div class="cart-item" v-for="(item, index) in cart_data">
+                    <div class="cart-item-image"
+                        :style="{ backgroundImage: `url(${item.type.image})` }">
+                    </div>
+                    <div class="cart-item-content">
+                        <div class="cart-item-name">
+                            {{ item.main.name }}
+                        </div>
+                        <div class="cart-item-type">
+                            {{ item.type.name }}
+                        </div>
+                        <div class="cart-item-price">
+                            {{ item.type.price }} LKR
+                        </div>
+                        <div class="cart-item-options">
+                            <div class="cart-item-qty-outer">
+                                <div
+                                    class="qty-btn rem"
+                                    :disabled="item.data.quantity === 1"
+                                    @click="updateCartItem(index, -1)">
+                                </div>
+                                <div class="cart-item-qty-val">
+                                    {{ item.data.quantity }}
+                                </div>
+                                <div
+                                    class="qty-btn add"
+                                    :disabled="item.data.quantity === 99"
+                                    @click="updateCartItem(index, +1)">
+                                </div>
+                            </div>
+                            <div
+                                class="cart-item-del"
+                                @click="deleteCartItem(index)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sumbit cart button -->
+            <div class="product-cart">
+                <button class="product-cart-button"
+                    :disabled="profile.cart.length === 0"
+                    @click="submitCart">
+                    Submit Cart Items
+                </button>
+            </div>
         </div>
 
         <!-- reality page -->
-        <div class="page reality" :active="page === 'reality'">            <!-- ribbon -->
+        <div class="page reality" :active="page === 'reality'">
+            <!-- ribbon -->
             <div class="ribbon" :solid="ribbon.solid">
                 <div class="ribbon-back" @click="back"></div>
             </div>
+            <!-- model viewer -->
             <div class="reality-outer" v-if="page === 'reality'">
                 <model-viewer
                     alt="Location Model"

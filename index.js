@@ -112,6 +112,34 @@ const app = new Vue({
             return this.profile.likes.some(item => {
                 return item.item_id === item_id && item.type_id === type_id
             })
+        },
+        // current cart data
+        cart_data() {
+            // return if no products
+            if ('products' in this.data === false) { return [] }
+            // output array
+            const output = []
+            // for each cart item
+            for (let i = 0; i < this.profile.cart.length; i++) {
+                // current cart item
+                const item = this.profile.cart[i]
+                // get main item by product id
+                const main = this.data.products.find(prod => prod.id === item.item_id)
+                // get type item by type id
+                const type = main.types.find(type => type.id === item.type_id)
+                // push to output array
+                output.push({ main, type, data: item })
+            }
+            // return output
+            return output
+        },
+        // current cart total
+        cart_total() {
+            // return cart items total
+            return this.cart_data.map(item => {
+                // return each item quantity total
+                return item.type.price * item.data.quantity
+            }).reduce((a, b) => a + b, 0)
         }
     },
     // methods
@@ -187,6 +215,30 @@ const app = new Vue({
             }
             // save profile data
             this.saveProfileData()
+        },
+        // method to set cart item quantity
+        updateCartItem(index, direction) {
+            // get current cart item
+            const item = this.profile.cart[index]
+            // return if quantity is at min amount
+            if (direction === -1 && item.quantity === 1) { return }
+            // return if quantity is at max amount
+            if (direction === +1 && item.quantity === 99) { return }
+            // update cart item quantity
+            item.quantity += direction
+            // save profile data
+            this.saveProfileData()
+        },
+        // method to delete cart item
+        deleteCartItem(index) {
+            // remove cart item by index
+            this.profile.cart = this.profile.cart.filter((_d, i) => i !== index)
+            // save profile data
+            this.saveProfileData()
+        },
+        // method to submit cart
+        submitCart() {
+
         }
     },
     // on mounted
