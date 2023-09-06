@@ -238,7 +238,30 @@ const app = new Vue({
         },
         // method to submit cart
         submitCart() {
-
+            // load submit page
+            this.next('submit')
+        },
+        // method to submit mail
+        submitMail() {
+            // save profile data
+            this.saveProfileData()
+            // back to cart
+            this.back()
+            // back delay
+            setTimeout(() => {
+                // create mailto string
+                let email = 'mailto:deserthopesl@gmail.com'
+                // include subject with timestamp
+                email += '?subject=' + encodeURI('Order Submit (' + Date.now() + ')')
+                // include items
+                email += '&body=' + encodeURI(this.cart_data.map(item => {
+                    return item.data.quantity
+                        + ' x ' + item.main.name
+                        + ' (' + item.type.name + ')'
+                }).join('\n'))
+                // submit email
+                window.location.href = email
+            }, 100)
         }
     },
     // on mounted
@@ -289,6 +312,9 @@ const app = new Vue({
             } else if (page === 'cart') {
                 // set explore page
                 this.page = 'cart'
+            } else if (page === 'submit') {
+                // set submit page
+                this.page = 'submit'
             } else if (page === 'reality') {
                 // set reality page
                 this.page = 'reality'

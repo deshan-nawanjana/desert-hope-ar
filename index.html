@@ -98,7 +98,7 @@
         </div>
 
         <!-- product page -->
-        <div class="page product" :active="page === 'product' || page === 'reality' || page === 'cart'">
+        <div class="page product" :active="page === 'product' || page === 'reality' || page === 'cart' || page === 'submit'">
             <!-- ribbon -->
             <div class="ribbon" :solid="ribbon.solid">
                 <div class="ribbon-back" @click="back"></div>
@@ -205,8 +205,8 @@
             </div>
         </div>
 
-        <!-- product page -->
-        <div class="page cart" :active="page === 'cart'">
+        <!-- cart page -->
+        <div class="page cart" :active="page === 'cart' || page === 'submit'">
             <!-- ribbon -->
             <div class="ribbon" :solid="ribbon.solid">
                 <div class="ribbon-back" @click="back"></div>
@@ -262,6 +262,58 @@
                     :disabled="profile.cart.length === 0"
                     @click="submitCart">
                     Submit Cart Items
+                </button>
+            </div>
+        </div>
+
+        <!-- submit page -->
+        <div class="page submit" :active="page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Submit Your Order
+                </div>
+            </div>
+            <div class="submit-inner">
+                <div class="submit-intro">
+                    Please fill out your contact information
+                    to submit your order through email.
+                </div>
+                <input
+                    type="text"
+                    placeholder="Full Name"
+                    v-model="profile.info.name"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <input
+                    type="text"
+                    placeholder="Mobile No."
+                    v-model="profile.info.mobile"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <input
+                    type="text"
+                    placeholder="Email"
+                    v-model="profile.info.email"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <textarea
+                    placeholder="Address"
+                    v-model="profile.info.address"
+                    spellcheck="false"
+                    autocomplete="off">
+                </textarea>
+            </div>
+            <!-- sumbit cart button -->
+            <div class="product-cart">
+                <button class="product-cart-button"
+                    :disabled="profile.cart.length === 0"
+                    @click="submitMail">
+                    Submit Order
                 </button>
             </div>
         </div>
