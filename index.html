@@ -40,6 +40,11 @@
             <!-- ribbon -->
             <div class="explore-ribbon">
                 <div class="explore-ribbon-find"></div>
+                <div class="explore-ribbon-like">
+                    <div class="ribbon-like"
+                        @click="navigate('likes')">
+                    </div>
+                </div>
                 <div class="explore-ribbon-cart">
                     <div class="ribbon-cart"
                         :count="cart_count"
@@ -94,6 +99,53 @@
             <!-- categories -->
             <div class="explore-categories">
                 
+            </div>
+        </div>
+
+        <!-- likes page -->
+        <div class="page likes" :active="page === 'likes' || page === 'product' || page === 'reality' || page === 'cart' || page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Wishlist
+                </div>
+                <div class="ribbon-cart"
+                    :count="cart_count"
+                    @click="navigate('cart')">
+                </div>
+            </div>
+            <div class="likes-inner">
+                <div
+                    class="cart-item"
+                    v-for="(item, index) in like_data"
+                    @click="event => viewLikeProduct(item, event)">
+                    <div class="cart-item-image"
+                        :style="{ backgroundImage: `url(${item.type.image})` }">
+                    </div>
+                    <div class="cart-item-content">
+                        <div class="cart-item-name">
+                            {{ item.main.name }}
+                        </div>
+                        <div class="cart-item-type">
+                            {{ item.type.name }}
+                        </div>
+                        <div class="cart-item-price">
+                            {{ item.type.price }} LKR
+                        </div>
+                        <div class="cart-item-options">
+                            <div
+                                class="cart-item-add"
+                                @click="addToCart(item.data.item_id, item.data.type_id)">
+                                Add to Cart
+                            </div>
+                            <div
+                                class="cart-item-del"
+                                @click="deleteLikeItem(index)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -217,7 +269,7 @@
                     {{ cart_total }} LKR
                 </div>
             </div>
-            <div class="cart-inner" @scroll="updateScroll" :total="profile.cart.length">
+            <div class="cart-inner" :total="profile.cart.length">
                 <div class="cart-item" v-for="(item, index) in cart_data">
                     <div class="cart-item-image"
                         :style="{ backgroundImage: `url(${item.type.image})` }">

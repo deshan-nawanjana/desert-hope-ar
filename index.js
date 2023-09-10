@@ -140,6 +140,26 @@ const app = new Vue({
                 // return each item quantity total
                 return item.type.price * item.data.quantity
             }).reduce((a, b) => a + b, 0)
+        },
+        // current like data
+        like_data() {
+            // return if no products
+            if ('products' in this.data === false) { return [] }
+            // output array
+            const output = []
+            // for each likes item
+            for (let i = 0; i < this.profile.likes.length; i++) {
+                // current likes item
+                const item = this.profile.likes[i]
+                // get main item by product id
+                const main = this.data.products.find(prod => prod.id === item.item_id)
+                // get type item by type id
+                const type = main.types.find(type => type.id === item.type_id)
+                // push to output array
+                output.push({ main, type, data: item })
+            }
+            // return output
+            return output
         }
     },
     // methods
@@ -236,6 +256,24 @@ const app = new Vue({
             // save profile data
             this.saveProfileData()
         },
+        // method to delete like item
+        deleteLikeItem(index) {
+            // remove cart item by index
+            this.profile.likes = this.profile.likes.filter((_d, i) => i !== index)
+            // save profile data
+            this.saveProfileData()
+        },
+        // method to view liked product
+        viewLikeProduct(item, event) {
+            // get target class item
+            const name = event.target.className
+            // return if delete button
+            if(name === 'cart-item-del') { return }
+            // return if add button
+            if(name === 'cart-item-add') { return }
+            // view product page
+            this.navigate('product', item.data.item_id + ':' + item.data.type_id)
+        },
         // method to submit cart
         submitCart() {
             // load submit page
@@ -300,7 +338,10 @@ const app = new Vue({
             // get page id
             const page = hash[0]
             // check page
-            if (page === 'product') {
+            if (page === 'likes') {
+                // set likes page
+                this.page = 'likes'
+            } else if (page === 'product') {
                 // set product id
                 this.product.item_id = hash[1]
                 // set product type id
