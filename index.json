@@ -40,6 +40,13 @@
                     "image": "assets/images/products/echeveria_amoena.png",
                     "price": 900,
                     "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1800,
+                    "available": true
                 }
             ],
             "details": [
@@ -105,6 +112,13 @@
                     "image": "assets/images/products/perle_von_nernberg.png",
                     "price": 900,
                     "available": true
+                },
+                {
+                    "id": "PERLE_VON_NERNBERG_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 1800,
+                    "available": true
                 }
             ],
             "details": [
@@ -169,6 +183,13 @@
                     "name": "Cement",
                     "image": "assets/images/products/echeveria_longissima.png",
                     "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 1800,
                     "available": true
                 }
             ],
@@ -236,6 +257,13 @@
                     "image": "assets/images/products/parodia_leninghausii.png",
                     "price": 900,
                     "available": true
+                },
+                {
+                    "id": "PARODIA_LENINGHAUSII_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 1800,
+                    "available": true
                 }
             ],
             "details": [
@@ -301,6 +329,13 @@
                     "name": "Cement",
                     "image": "assets/images/products/opuntia_microdasys.png",
                     "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "OPUNTIA_MICRODASYS_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 1800,
                     "available": true
                 }
             ],
