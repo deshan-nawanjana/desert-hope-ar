@@ -97,9 +97,22 @@
                     </div>
                 </div>
             </div>
-            <!-- categories -->
+            <!-- all products -->
             <div class="explore-categories">
-                
+                <div
+                    class="explore-all-item" v-for="item in data.products"
+                    @click="navigate('product', item.id + ':' + item.types[0].id)">
+                    <div
+                        class="explore-all-item-image"
+                        :style="{ backgroundImage: `url(${item.image})` }"
+                    ></div>
+                    <div class="explore-all-item-title">
+                        {{item.name}}
+                    </div>
+                    <div class="explore-all-item-price">
+                        {{item.types[0].price}} LKR
+                    </div>
+                </div>
             </div>
         </div>
 

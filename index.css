@@ -273,7 +273,35 @@ body {
 
 .explore-categories {
     background-color: #151314;
-    padding: 30vh 0px;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.explore-all-item {
+    width: calc(50% - 10px);
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.explore-all-item-image {
+    height: calc(100% - 60px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+}
+
+.explore-all-item-title {
+    font-size: 13px;
+    height: 25px;
+}
+
+.explore-all-item-price {
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* ================================== likes page ================================ */
