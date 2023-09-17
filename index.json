@@ -1,6 +1,71 @@
 {
     "products": [
         {
+            "id": "ECHEVERIA_AMOENA",
+            "name": "Echeveria Amoena",
+            "image": "assets/images/products/echeveria_amoena.png",
+            "category": {
+                "id": "CRASSULACEAE",
+                "name": "Crassulaceae"
+            },
+            "tags": [
+                "newest",
+                "popular"
+            ],
+            "types": [
+                {
+                    "id": "ECHEVERIA_AMOENA_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 900,
+                    "available": true
+                }
+            ],
+            "details": [
+                "Echeveria amoena is a clump-forming species with attractive grey-green leaves. It features yellow-orange flowers and will take on a red colouring in strong light. Perfect for adding to your indoor succulent collection as a standalone specimen or with others.",
+                "It is a herbaceous, perennial plant with a stem up to 8 cm long. It grows in the form of a compact rosette, commonly less than 5 cm in diameter, with fleshy, obovate-oblanceolate, full-margin and accumulated apex leaves."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        },
+        {
             "id": "PERLE_VON_NERNBERG",
             "name": "Perle Von Nernberg",
             "image": "assets/images/products/perle_von_nernberg.png",
