@@ -268,9 +268,9 @@ const app = new Vue({
             // get target class item
             const name = event.target.className
             // return if delete button
-            if(name === 'cart-item-del') { return }
+            if (name === 'cart-item-del') { return }
             // return if add button
-            if(name === 'cart-item-add') { return }
+            if (name === 'cart-item-add') { return }
             // view product page
             this.navigate('product', item.data.item_id + ':' + item.data.type_id)
         },
@@ -296,7 +296,14 @@ const app = new Vue({
                     return item.data.quantity
                         + ' x ' + item.main.name
                         + ' (' + item.type.name + ')'
-                }).join('\n'))
+                }).join('\n') + '\n\n'
+                    // include customer name
+                    + 'Full Name : ' + this.profile.info.name + '\n'
+                    // include mobile number
+                    + 'Mobile No : ' + this.profile.info.mobile + '\n'
+                    // include address
+                    + 'Address   : ' + this.profile.info.address
+                )
                 // submit email
                 window.location.href = email
             }, 100)
