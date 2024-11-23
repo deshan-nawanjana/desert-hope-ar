@@ -5,13 +5,14 @@
     <!-- meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="256x256" href="./index.png">
     <link rel="shortcut icon" href="./index.png" type="image/x-icon">
     <link rel="mask-icon" href="./assets/images/icons/icon_192.png" color="#ffffff">
     <!-- manifest -->
-    <link href="./manifest.webmanifest" rel="manifest">
+    <link href="./manifest.json" rel="manifest">
     <!-- preloads -->
     <link rel="preload" href="./assets/fonts/CircularStd-Book.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="./assets/fonts/CircularStd-Bold.woff" as="font" type="font/woff" crossorigin>
@@ -25,12 +26,6 @@
     <script src="./index.js" defer></script>
     <!-- page title -->
     <title>Desert Hope</title>
-    <script>
-        // localStorage.clear()
-        window.onerror = function () {
-            alert(1)
-        }
-    </script>
 </head>
 
 <body>
